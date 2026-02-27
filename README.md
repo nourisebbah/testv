@@ -52,3 +52,4 @@ All components in `src/views/components/` have been customized:
 
 See `SETUP_INSTRUCTIONS.md` for detailed setup guide.
 "# testv" 
+"# testmj" 
