@@ -7,7 +7,546 @@
 #}
 {% extends "layouts.master" %}
 {% block content %}
-    {% component home %}
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2>JUMP STARTERS</h2>
+                        <p>START BATTERIES IN SECONDS</p>
+                        <button class="shop-now-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                    </div>
+                    <div class="hero-image">
+                        <img src="{{ 'images/jump-starter.jpg'|asset }}" alt="Jump Starter">
+                        <div class="price-badge">FROM $49.99</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Vehicle Filter - Fixed in Hero Banner -->
+        <div class="hero-vehicle-filter">
+            <div class="vehicle-filter-form">
+                <h5>Select your car</h5>
+                <div class="vehicle-filter-fields">
+                    <select class="vehicle-select">
+                        <option>Make</option>
+                    </select>
+                    <select class="vehicle-select">
+                        <option>Model</option>
+                    </select>
+                    <select class="vehicle-select">
+                        <option>Year</option>
+                    </select>
+                    <select class="vehicle-select">
+                        <option>Engine</option>
+                    </select>
+                    <select class="vehicle-select">
+                        <option>Trim</option>
+                    </select>
+                    <button class="vehicle-search-btn">Search</button>
+                </div>
+                <div class="vehicle-filter-or">
+                    <span>OR</span>
+                </div>
+                <div class="vehicle-filter-vin">
+                    <input type="text" class="vin-input" placeholder="Search by VIN">
+                    <button class="vin-search-btn">Search</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="slider-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="featured-categories">
+        <div class="container">
+            <h4 class="section-title">Featured categories</h4>
+            <div class="categories-grid">
+                <div class="category-item">
+                    <a href="{{ 'categories/body'|url }}">
+                        <div class="category-icon">
+                            <img src="{{ 'images/categories/body.jpg'|asset }}" alt="Body">
+                        </div>
+                        <h3>Body</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="{{ 'categories/brakes'|url }}">
+                        <div class="category-icon">
+                            <img src="{{ 'images/categories/brakes.jpg'|asset }}" alt="Brakes">
+                        </div>
+                        <h3>Brakes</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="{{ 'categories/care-kit'|url }}">
+                        <div class="category-icon">
+                            <img src="{{ 'images/categories/care-kit.jpg'|asset }}" alt="Care Kit">
+                        </div>
+                        <h3>Care Kit</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="{{ 'categories/damping'|url }}">
+                        <div class="category-icon">
+                            <img src="{{ 'images/categories/damping.jpg'|asset }}" alt="Damping">
+                        </div>
+                        <h3>Damping</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="{{ 'categories/electrics'|url }}">
+                        <div class="category-icon">
+                            <img src="{{ 'images/categories/electrics.jpg'|asset }}" alt="Electrics">
+                        </div>
+                        <h3>Electrics</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="{{ 'categories/engine'|url }}">
+                        <div class="category-icon">
+                            <img src="{{ 'images/categories/engine.jpg'|asset }}" alt="Engine">
+                        </div>
+                        <h3>Engine</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="{{ 'categories/filters'|url }}">
+                        <div class="category-icon">
+                            <img src="{{ 'images/categories/filters.jpg'|asset }}" alt="Filters">
+                        </div>
+                        <h3>Filters</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="{{ 'categories/interior'|url }}">
+                        <div class="category-icon">
+                            <img src="{{ 'images/categories/interior.jpg'|asset }}" alt="Interior">
+                        </div>
+                        <h3>Interior</h3>
+                    </a>
+                </div>
+                <div class="category-item">
+                    <a href="{{ 'categories/fluids'|url }}">
+                        <div class="category-icon">
+                            <img src="{{ 'images/categories/fluids.jpg'|asset }}" alt="Fluids">
+                        </div>
+                        <h3>Fluids</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotional Banners -->
+    <section class="promo-banners">
+        <div class="container">
+            <div class="banner-grid">
+                <div class="promo-banner batteries-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge">Top brands</span>
+                        <h2>BATTERIES</h2>
+                        <p>Stay charged up!</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/battery.jpg'|asset }}" alt="Battery">
+                    </div>
+                </div>
+                <div class="promo-banner tires-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge green">Buy 3 Get 1 For Free</span>
+                        <h2>TIRES & WHEELS</h2>
+                        <p>Stay safe on road!</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/tires.jpg'|asset }}" alt="Tires">
+                    </div>
+                </div>
+                <div class="promo-banner springs-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge yellow">Big sale</span>
+                        <h2>BUY 1 GET 1</h2>
+                        <p>FREE</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/springs.jpg'|asset }}" alt="Springs">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h4 class="section-title">Featured products in</h4>
+                <div class="category-tabs">
+                    <button class="tab-btn active">Engine parts</button>
+                    <button class="tab-btn">Oil & Fluids</button>
+                    <button class="tab-btn">Suspension</button>
+                </div>
+            </div>
+            <salla-products-list source="featured" limit="8"></salla-products-list>
+        </div>
+    </section>
+
+    <!-- Deals of the Week -->
+    <section class="deals-section">
+        <div class="container">
+            <div class="deals-header">
+                <h2>Deals of the week!</h2>
+                <div class="deals-countdown">
+                    <span class="timer-box">09</span>
+                    <span class="timer-separator">:</span>
+                    <span class="timer-box">20</span>
+                    <span class="timer-separator">:</span>
+                    <span class="timer-box">54</span>
+                    <span class="timer-separator">:</span>
+                    <span class="timer-box">27</span>
+                </div>
+                <div class="deals-nav">
+                    <button class="nav-arrow"><i class="sicon-chevron-left"></i></button>
+                    <button class="nav-arrow"><i class="sicon-chevron-right"></i></button>
+                </div>
+            </div>
+            <salla-products-list source="latest" limit="4"></salla-products-list>
+        </div>
+    </section>
+
+    <!-- Featured Manufacturers -->
+    <section class="featured-manufacturers">
+        <div class="container">
+            <div class="section-header">
+                <h4 class="section-title">Featured manufacturers</h4>
+                <div class="manufacturers-nav">
+                    <button class="nav-arrow"><i class="sicon-chevron-left"></i></button>
+                    <button class="nav-arrow"><i class="sicon-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="manufacturers-grid">
+                <div class="manufacturer-item"><img src="{{ 'images/brands/audi.webp'|asset }}" alt="Audi"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/bentley.webp'|asset }}" alt="Bentley"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/chevrolet.webp'|asset }}" alt="Chevrolet"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/ford.webp'|asset }}" alt="Ford"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/infiniti.webp'|asset }}" alt="Infiniti"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/kia.webp'|asset }}" alt="Kia"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/lexus.webp'|asset }}" alt="Lexus"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/mazda.webp'|asset }}" alt="Mazda"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/mitsubishi.webp'|asset }}" alt="Mitsubishi"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/porche.webp'|asset }}" alt="Porsche"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/toyota.webp'|asset }}" alt="Toyota"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/volvo.webp'|asset }}" alt="Volvo"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/bmw.webp'|asset }}" alt="BMW"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/cadillac.webp'|asset }}" alt="Cadillac"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/dodge.webp'|asset }}" alt="Dodge"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/honda.webp'|asset }}" alt="Honda"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/hyundai.webp'|asset }}" alt="Hyundai"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/lamborghini.webp'|asset }}" alt="Lamborghini"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/lincoln.webp'|asset }}" alt="Lincoln"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/mercedes-benz.webp'|asset }}" alt="Mercedes-Benz"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/nissan.webp'|asset }}" alt="Nissan"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/rolls-royce.webp'|asset }}" alt="Rolls-Royce"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/volkswagen.webp'|asset }}" alt="Volkswagen"></div>
+                <div class="manufacturer-item"><img src="{{ 'images/brands/maybach.webp'|asset }}" alt="Maybach"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews -->
+    <section class="customer-reviews">
+        <div class="container">
+            <div class="reviews-header">
+                <h4 class="section-title">What our customers think</h4>
+                <div class="reviews-rating">
+                    <span class="rating-text">Excellent 4.91</span>
+                    <span class="rating-count">based on 225,181 reviews</span>
+                </div>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <img src="{{ 'images/reviewers/john.jpg'|asset }}" alt="John Anderson" class="reviewer-avatar">
+                        <div class="reviewer-details">
+                            <h4>John Anderson</h4>
+                            <div class="review-stars">
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">I found the exact fuel pump I needed for my vintage car, and the speedy delivery exceeded my expectations.</p>
+                </div>
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <img src="{{ 'images/reviewers/liam.jpg'|asset }}" alt="Liam Turner" class="reviewer-avatar">
+                        <div class="reviewer-details">
+                            <h4>Liam Turner</h4>
+                            <div class="review-stars">
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">The quality is top. I purchased brake pads for my SUV, improved my vehicle's stopping power.</p>
+                </div>
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <img src="{{ 'images/reviewers/alex.jpg'|asset }}" alt="Alex Smith" class="reviewer-avatar">
+                        <div class="reviewer-details">
+                            <h4>Alex Smith</h4>
+                            <div class="review-stars">
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">Mobex delivered on their promise of quality and affordability. I got an air filter for my SUV, and it fit perfectly.</p>
+                </div>
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <img src="{{ 'images/reviewers/taylor.jpg'|asset }}" alt="Taylor Laurent" class="reviewer-avatar">
+                        <div class="reviewer-details">
+                            <h4>Taylor Laurent</h4>
+                            <div class="review-stars">
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">The diverse inventory and personalized support simplified the process. Mobex is a lifesaver for me.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Promotional Banners -->
+    <section class="additional-banners">
+        <div class="container">
+            <div class="banner-grid-2">
+                <div class="promo-banner brake-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge">Top brands</span>
+                        <h2>BRAKE SYSTEM</h2>
+                        <p>WE'VE GOT YOU COVERED</p>
+                        <p class="banner-subtitle">Great Values. Always.</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                        <button class="presale-chat-btn">Presale chat</button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/brake-system.jpg'|asset }}" alt="Brake System">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Brands -->
+    <section class="featured-brands">
+        <div class="container">
+            <h4 class="section-title">Featured brands</h4>
+            <div class="brands-grid">
+                <div class="brand-item"><img src="{{ 'images/brands/icma.jpg'|asset }}" alt="ICMA"></div>
+                <div class="brand-item"><img src="{{ 'images/brands/ravenol.jpg'|asset }}" alt="RAVENOL"></div>
+                <div class="brand-item"><img src="{{ 'images/brands/tricsan.jpg'|asset }}" alt="TRICSAN"></div>
+                <div class="brand-item"><img src="{{ 'images/brands/blic.jpg'|asset }}" alt="BLIC"></div>
+                <div class="brand-item"><img src="{{ 'images/brands/dayco.jpg'|asset }}" alt="DAYCO"></div>
+                <div class="brand-item"><img src="{{ 'images/brands/stark.jpg'|asset }}" alt="Stark"></div>
+                <div class="brand-item"><img src="{{ 'images/brands/ridex.jpg'|asset }}" alt="RIDEX"></div>
+                <div class="brand-item"><img src="{{ 'images/brands/castrol.jpg'|asset }}" alt="CASTROL"></div>
+                <div class="brand-item"><img src="{{ 'images/brands/alanko.jpg'|asset }}" alt="ALANKO"></div>
+                <div class="brand-item"><img src="{{ 'images/brands/abakus.jpg'|asset }}" alt="ABAKUS"></div>
+                <div class="brand-item"><img src="{{ 'images/brands/bosch.jpg'|asset }}" alt="BOSCH"></div>
+                <div class="brand-item"><img src="{{ 'images/brands/leoplast.jpg'|asset }}" alt="Leoplast"></div>
+                <div class="brand-item"><img src="{{ 'images/brands/dt.jpg'|asset }}" alt="Dt"></div>
+                <div class="brand-item"><img src="{{ 'images/brands/petek.jpg'|asset }}" alt="Petek"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guides and Articles -->
+    <section class="guides-section">
+        <div class="container">
+            <div class="guides-content">
+                <div class="guides-text">
+                    <h4 class="section-title">Guides and articles</h4>
+                    <p>Articles and Guides that are written with the mechanics to ensure you have all the edge you need to make the correct selection here at Mobex.</p>
+                    <a href="{{ 'blog'|url }}" class="read-more-btn">Read more <i class="sicon-arrow-right"></i></a>
+                </div>
+                <div class="articles-grid">
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="{{ 'images/articles/cars-sold.jpg'|asset }}" alt="Cars Sold">
+                            <span class="article-date">02 OCT</span>
+                        </div>
+                        <span class="article-category">News</span>
+                        <h3>The number of new cars sold over 20 years</h3>
+                        <a href="{{ 'blog'|url }}" class="article-link">Read more <i class="sicon-arrow-right"></i></a>
+                    </article>
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="{{ 'images/articles/warning-lights.jpg'|asset }}" alt="Warning Lights">
+                            <span class="article-date">02 OCT</span>
+                        </div>
+                        <span class="article-category">Usefull</span>
+                        <h3>Warning lights indicating activation of various systems</h3>
+                        <a href="{{ 'blog'|url }}" class="article-link">Read more <i class="sicon-arrow-right"></i></a>
+                    </article>
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="{{ 'images/articles/oil-change.jpg'|asset }}" alt="Oil Change">
+                            <span class="article-date">02 OCT</span>
+                        </div>
+                        <span class="article-category">Premium</span>
+                        <h3>What to know about changing the engine oil and oil filters</h3>
+                        <a href="{{ 'blog'|url }}" class="article-link">Read more <i class="sicon-arrow-right"></i></a>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Promotional Banners -->
+    <section class="more-promo-banners">
+        <div class="container">
+            <div class="banner-grid-2">
+                <div class="promo-banner lamps-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge green">Top Brands</span>
+                        <h2>LAMPS AND LIGHTS</h2>
+                        <h2 class="banner-mega">MEGA SALE</h2>
+                        <p>2023 models included!</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                        <button class="presale-chat-btn">Presale chat</button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/lamps.jpg'|asset }}" alt="Lamps">
+                    </div>
+                </div>
+                <div class="promo-banner filters-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge red">Big Sales!</span>
+                        <h2>AIR FILTERS</h2>
+                        <p>Premium quality</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/air-filters.jpg'|asset }}" alt="Air Filters">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- More Promotional Banners 2 -->
+    <section class="more-promo-banners-2">
+        <div class="container">
+            <div class="banner-grid-2">
+                <div class="promo-banner offroad-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge orange">Up to 40% Off</span>
+                        <h2>READY FOR<br>OFF ROAD</h2>
+                        <p>Confidence on any road!</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/offroad-tire.jpg'|asset }}" alt="Off-Road Tire">
+                    </div>
+                </div>
+                <div class="promo-banner engine-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge green">Top Brands</span>
+                        <h2>ENGINE<br>ESSENTIALS</h2>
+                        <p>Maximize & Maintain</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/engine.jpg'|asset }}" alt="Engine">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transmission & Care Kit Banners -->
+    <section class="transmission-banners">
+        <div class="container">
+            <div class="banner-grid-2">
+                <div class="promo-banner transmission-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge yellow">15% off</span>
+                        <h2>TRANSMISSION FLUIDS</h2>
+                        <p>Superior Quality ATF</p>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/transmission-fluid.jpg'|asset }}" alt="Transmission Fluid">
+                    </div>
+                </div>
+                <div class="promo-banner carekit-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge green">Save 25%. All in One!</span>
+                        <h2>CARE CARE KIT</h2>
+                        <p>Keep things clean and shinela</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/care-kit.jpg'|asset }}" alt="Care Kit">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Shipping Banner -->
+    <section class="shipping-banner">
+        <div class="container">
+            <div class="shipping-content">
+                <div class="shipping-text">
+                    <h2>FREE<br>SHIPPING</h2>
+                    <div class="shipping-price">
+                        <span class="price-large">$99</span>
+                        <span class="price-label">STARTING</span>
+                    </div>
+                    <p>For all items & regions!</p>
+                </div>
+                <div class="shipping-image">
+                    <img src="{{ 'images/delivery-van.jpg'|asset }}" alt="Delivery">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Presale Chat Float Button -->
+    <button class="presale-chat-float">
+        <i class="sicon-chat"></i> Presale chat
+    </button>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn">
+        <i class="sicon-chevron-up"></i>
+    </button>
 {% endblock %}
 {% block scripts %}
     <script defer src="{{ 'home.js' | asset }}"></script>

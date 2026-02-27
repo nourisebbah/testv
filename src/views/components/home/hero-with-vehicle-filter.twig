@@ -10,31 +10,19 @@
 #}
 <section class="hero-section">
     <div class="hero-slider">
-        <salla-slider 
-          id="main-slider-{{ position }}"
-          auto-play
-          static-when-single
-          slider-config='{"lazy":"false"}'
-          {{ component.slides|length > 1 ? '' : 'show-controls="false"' }}
-          type="fullwidth">
-            <div slot="items">
-                {% for slide in component.slides %}
-                    <div class="swiper-slide hero-slide {% if loop.first %}active{% endif %}">
-                        <div class="hero-content">
-                            <div class="hero-text">
-                                <h2>{{ slide.title|default('JUMP STARTERS') }}</h2>
-                                <p>{{ slide.description|default('START BATTERIES IN SECONDS') }}</p>
-                                <button class="shop-now-btn">Shop now <i class="sicon-arrow-right"></i></button>
-                            </div>
-                            <div class="hero-image">
-                                <img src="{{ slide.image }}" alt="{{ slide.title|default('Hero') }}">
-                                <div class="price-badge">FROM $49.99</div>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
+        <div class="hero-slide active">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>JUMP STARTERS</h2>
+                    <p>START BATTERIES IN SECONDS</p>
+                    <button class="shop-now-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                </div>
+                <div class="hero-image">
+                    <img src="{{ 'images/jump-starter.jpg'|asset }}" alt="Jump Starter">
+                    <div class="price-badge">FROM $49.99</div>
+                </div>
             </div>
-        </salla-slider>
+        </div>
     </div>
     
     <!-- Vehicle Filter - Fixed in Hero Banner -->

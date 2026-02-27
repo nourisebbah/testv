@@ -20,6 +20,15 @@
     --mobex-text-gray: #444;
 }
 
+/* Container - Ensure it works with Salla theme */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+}
+
 /* Import Inter Font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
