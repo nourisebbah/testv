@@ -1,0 +1,149 @@
+{#
+| Variable         | Type    | Description                     |
+|------------------|---------|---------------------------------|
+| cart             | object  |                                 |
+| cart.items_count | int     |                                 |
+| cart.total       | string  | Formatted total ex: "١٠٠ ر.س"   |
+#}
+<header class="store-header">
+  {# Top Banner - MOBEX Design #}
+  {% include 'components.header.top-banner' %}
+
+  {# Main Header - MOBEX Design #}
+  <div class="main-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <a href="{{ store.url }}">
+            {% if store.logo %}
+              <img src="{{ store.logo }}" alt="{{ store.name }}">
+            {% else %}
+              <h1>{{ store.name }}</h1>
+              <p>AUTO PARTS & ACCESSORIES</p>
+            {% endif %}
+          </a>
+        </div>
+        <div class="header-search">
+          <salla-search></salla-search>
+        </div>
+        <div class="header-actions">
+          {# Currency Selector - API Implementation #}
+          {% if store.settings.currencies_enabled %}
+            <select class="currency-select" id="currency-selector">
+              {% if store.currencies %}
+                {% for currency in store.currencies %}
+                  <option value="{{ currency.code }}" {% if currency.is_current %}selected{% endif %}>
+                    {{ currency.symbol }} {{ currency.code }}
+                  </option>
+                {% endfor %}
+              {% else %}
+                <option value="SAR">SAR</option>
+              {% endif %}
+            </select>
+            <script>
+              document.getElementById('currency-selector')?.addEventListener('change', function(e) {
+                const currencyCode = e.target.value;
+                if (window.salla && window.salla.api && window.salla.api.currency && window.salla.api.currency.switch) {
+                  try {
+                    window.salla.api.currency.switch(currencyCode).then(function() {
+                      window.location.reload();
+                    }).catch(function(error) {
+                      const url = new URL(window.location.href);
+                      url.searchParams.set('currency', currencyCode);
+                      window.location.href = url.toString();
+                    });
+                  } catch (error) {
+                    const url = new URL(window.location.href);
+                    url.searchParams.set('currency', currencyCode);
+                    window.location.href = url.toString();
+                  }
+                } else {
+                  const url = new URL(window.location.href);
+                  url.searchParams.set('currency', currencyCode);
+                  window.location.href = url.toString();
+                }
+              });
+            </script>
+          {% endif %}
+
+          {# Language Selector - API Implementation #}
+          {% if store.settings.is_multilingual %}
+            <select class="language-select" id="language-selector">
+              {% if store.languages %}
+                {% for lang in store.languages %}
+                  <option value="{{ lang.code }}" {% if lang.is_current %}selected{% endif %}>
+                    {{ lang.name }}
+                  </option>
+                {% endfor %}
+              {% else %}
+                <option value="en">En</option>
+              {% endif %}
+            </select>
+            <script>
+              document.getElementById('language-selector')?.addEventListener('change', function(e) {
+                const langCode = e.target.value;
+                if (window.salla && window.salla.api && window.salla.api.language && window.salla.api.language.switch) {
+                  try {
+                    window.salla.api.language.switch(langCode).then(function() {
+                      window.location.reload();
+                    }).catch(function(error) {
+                      const url = new URL(window.location.href);
+                      url.searchParams.set('lang', langCode);
+                      window.location.href = url.toString();
+                    });
+                  } catch (error) {
+                    const url = new URL(window.location.href);
+                    url.searchParams.set('lang', langCode);
+                    window.location.href = url.toString();
+                  }
+                } else {
+                  const url = new URL(window.location.href);
+                  url.searchParams.set('lang', langCode);
+                  window.location.href = url.toString();
+                }
+              });
+            </script>
+          {% endif %}
+
+          {# Login Button #}
+          {% if user.type=='user' %}
+            <salla-user-menu avatar-only show-header></salla-user-menu>
+          {% else %}
+            <button class="login-btn" onclick="salla.event.dispatch('login::open')">
+              <i class="sicon-user"></i> Login
+            </button>
+          {% endif %}
+
+          {# Exchange/Wishlist Icons #}
+          <a href="#" class="icon-link"><i class="sicon-exchange"></i></a>
+          <a href="#" class="icon-link"><i class="sicon-heart"></i></a>
+
+          {# Cart Link #}
+          <a href="{{ page('cart') }}" class="cart-link">
+            <i class="sicon-cart"></i>
+            <span>Cart <span class="cart-count">
+              {% if cart.items|length > 0 %}
+                {{ cart.items|length }} items
+              {% else %}
+                0 items
+              {% endif %}
+            </span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {# Navigation Menu - MOBEX Design #}
+  <nav class="main-nav">
+    <div class="container">
+      <button class="categories-btn">
+        <i class="sicon-menu"></i> All categories <i class="sicon-chevron-down"></i>
+      </button>
+      <salla-menu type="header"></salla-menu>
+      <button class="my-garage-btn">
+        <i class="sicon-car"></i> My garage <i class="sicon-chevron-down"></i>
+      </button>
+    </div>
+  </nav>
+</header>

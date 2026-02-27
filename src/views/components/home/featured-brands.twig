@@ -1,0 +1,24 @@
+{# Featured Brands Component - MOBEX Design #}
+{# Using documented brand objects from sallatheme.txt #}
+<section class="featured-brands">
+    <div class="container">
+        <h4 class="section-title">{{ trans('pages.brands.featured_title')|default('Featured brands') }}</h4>
+        <div class="brands-grid">
+            {% if brands|length > 0 %}
+                {% for brand in brands %}
+                    <div class="brand-item">
+                        <a href="{{ brand.url }}">
+                            {% if brand.logo %}
+                                <img src="{{ brand.logo }}" alt="{{ brand.name }}">
+                            {% else %}
+                                <span class="brand-name">{{ brand.name }}</span>
+                            {% endif %}
+                        </a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>{{ trans('pages.brands.no_featured_brands')|default('No featured brands available.') }}</p>
+            {% endif %}
+        </div>
+    </div>
+</section>

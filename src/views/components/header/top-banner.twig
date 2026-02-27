@@ -1,0 +1,28 @@
+{# Top Banner Component - MOBEX Design #}
+<div class="top-banner">
+    <div class="container">
+        <div class="top-banner-left">
+            <span><i class="sicon-phone"></i> Call us between 8 AM - 10 PM / {% if store.contacts.mobile %}{{ store.contacts.mobile }}{% else %}6668 5555 8464{% endif %}</span>
+            <span><i class="sicon-headset"></i> Live Chat / Chat with an Expert</span>
+        </div>
+        <div class="top-banner-center">
+            <span class="sale-text">Pre-Black Friday Sale</span>
+            <span class="sale-code">Up to 65% Off | Use code "BLACK"</span>
+        </div>
+        <div class="top-banner-right">
+            <div class="countdown">
+                <span>Offer Expires in</span>
+                <div class="countdown-timer">
+                    <span class="timer-box"><span id="hours">09</span></span>
+                    <span class="timer-separator">:</span>
+                    <span class="timer-box"><span id="minutes">20</span></span>
+                    <span class="timer-separator">:</span>
+                    <span class="timer-box"><span id="seconds">57</span></span>
+                    <span class="timer-separator">:</span>
+                    <span class="timer-box"><span id="milliseconds">32</span></span>
+                </div>
+            </div>
+            <span class="close-banner"><i class="sicon-close"></i></span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+{# Featured Categories Component - MOBEX Design #}
+{# Using documented category objects from sallatheme.txt #}
+<section class="featured-categories">
+    <div class="container">
+        <h4 class="section-title">{{ trans('pages.categories.featured_title')|default('Featured categories') }}</h4>
+        <div class="categories-grid">
+            {% if categories|length > 0 %}
+                {% for category in categories %}
+                    <div class="category-item">
+                        <a href="{{ category.url }}"{% if category.is_current %} class="active"{% endif %}>
+                            <div class="category-icon">
+                                {% if category.image and category.image.url %}
+                                    <img src="{{ category.image.url }}" alt="{{ category.image.alt|default(category.name) }}">
+                                {% else %}
+                                    <img src="{{ ('images/categories/' ~ category.name|kebab_case ~ '.jpg')|asset }}" alt="{{ category.name }}" onerror="this.src='{{ 'images/categories/default.jpg'|asset }}'">
+                                {% endif %}
+                            </div>
+                            <h3>{{ category.name }}</h3>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                {# Fallback static categories if categories array is empty #}
+                <div class="category-item">
+                    <a href="#">
+                        <div class="category-icon">
+                            <img src="{{ 'images/categories/body.jpg'|asset }}" alt="Body">
+                        </div>
+                        <h3>Body</h3>
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

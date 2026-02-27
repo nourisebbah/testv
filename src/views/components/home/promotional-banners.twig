@@ -1,0 +1,75 @@
+{# Promotional Banners Component - MOBEX Design #}
+{# Primary: Dynamic Salla banners, Fallback: Static HTML #}
+{% if banners and banners|length > 0 %}
+    {% for banner in banners %}
+        <section class="promo-banner {{ banner.class|default('') }}" style="{% if banner.background %}background: {{ banner.background }};{% endif %}">
+            <div class="container">
+                <div class="banner-content">
+                    {% if banner.badge %}
+                        <span class="banner-badge">{{ banner.badge }}</span>
+                    {% endif %}
+                    {% if banner.title %}
+                        <h2>{{ banner.title }}</h2>
+                    {% endif %}
+                    {% if banner.subtitle %}
+                        <p>{{ banner.subtitle }}</p>
+                    {% endif %}
+                    {% if banner.description %}
+                        <p class="banner-subtitle">{{ banner.description }}</p>
+                    {% endif %}
+                    {% if banner.button_text and banner.button_url %}
+                        <a href="{{ banner.button_url }}" class="banner-btn">
+                            {{ banner.button_text }} <i class="sicon-arrow-right"></i>
+                        </a>
+                    {% endif %}
+                </div>
+                {% if banner.image %}
+                    <div class="banner-image">
+                        <img src="{{ banner.image.url }}" alt="{{ banner.image.alt|default(banner.title) }}">
+                    </div>
+                {% endif %}
+            </div>
+        </section>
+    {% endfor %}
+{% else %}
+    {# Fallback: Static promotional banners from frontend #}
+    <section class="promo-banners">
+        <div class="container">
+            <div class="banner-grid">
+                <div class="promo-banner batteries-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge">Top brands</span>
+                        <h2>BATTERIES</h2>
+                        <p>Stay charged up!</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/battery.jpg'|asset }}" alt="Battery">
+                    </div>
+                </div>
+                <div class="promo-banner tires-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge green">Buy 3 Get 1 For Free</span>
+                        <h2>TIRES & WHEELS</h2>
+                        <p>Stay safe on road!</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/tires.jpg'|asset }}" alt="Tires">
+                    </div>
+                </div>
+                <div class="promo-banner springs-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge yellow">Big sale</span>
+                        <h2>BUY 1 GET 1</h2>
+                        <p>FREE</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/springs.jpg'|asset }}" alt="Springs">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endif %}

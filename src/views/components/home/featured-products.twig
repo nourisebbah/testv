@@ -1,0 +1,61 @@
+{# Featured Products Component - MOBEX Design #}
+{# Using documented product objects from sallatheme.txt #}
+<section class="featured-products">
+    <div class="container">
+        <div class="section-header">
+            <h4 class="section-title">{{ trans('pages.products.featured_title')|default('Featured products in') }}</h4>
+            {# Category tabs - Static HTML only, no product filtering documented for homepage #}
+            <div class="category-tabs">
+                <button class="tab-btn active">Engine parts</button>
+                <button class="tab-btn">Oil & Fluids</button>
+                <button class="tab-btn">Suspension</button>
+            </div>
+        </div>
+        <div class="products-grid">
+            {% if products|length > 0 %}
+                {% for product in products %}
+                    <div class="product-card">
+                        {# Promotion badge using documented product.promotion_title #}
+                        {% if product.promotion_title %}
+                            <span class="product-badge sale">{{ product.promotion_title }}</span>
+                        {% endif %}
+                        <div class="product-image">
+                            <a href="{{ product.url }}">
+                                <img src="{{ product.image.url }}" alt="{{ product.image.alt }}"/>
+                            </a>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">
+                                <a href="{{ product.url }}">{{ product.name }}</a>
+                            </h3>
+                            {# Product rating using documented product.rating #}
+                            {% if product.rating %}
+                                <div class="product-rating">
+                                    <salla-rating-stars rating="{{ product.rating }}"></salla-rating-stars>
+                                </div>
+                            {% endif %}
+                            <div class="product-price">
+                                {# Price display using documented product.is_on_sale pattern #}
+                                {% if product.is_on_sale %}
+                                    <h4>{{ product.sale_price|money }}</h4>
+                                    <span class="regular-price">{{ product.regular_price|money }}</span>
+                                {% else %}
+                                    <h4>{{ product.price|money }}</h4>
+                                {% endif %}
+                            </div>
+                            {# Add to cart button using documented salla-add-product-button #}
+                            <salla-add-product-button 
+                                product-id="{{ product.id }}"
+                                product-status="{{ product.status }}"
+                                product-type="{{ product.type }}">
+                            </salla-add-product-button>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                {# No products message #}
+                <p>{{ trans('pages.categories.no_products')|default('No products available.') }}</p>
+            {% endif %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,30 @@
+{# Featured Manufacturers Component - MOBEX Design #}
+{# Using documented brand objects from sallatheme.txt #}
+<section class="featured-manufacturers">
+    <div class="container">
+        <div class="section-header">
+            <h4 class="section-title">{{ trans('pages.manufacturers.featured_title')|default('Featured manufacturers') }}</h4>
+            <div class="manufacturers-nav">
+                <button class="nav-arrow"><i class="sicon-chevron-left"></i></button>
+                <button class="nav-arrow"><i class="sicon-chevron-right"></i></button>
+            </div>
+        </div>
+        <div class="manufacturers-grid">
+            {% if brands|length > 0 %}
+                {% for brand in brands %}
+                    <div class="manufacturer-item">
+                        <a href="{{ brand.url }}">
+                            {% if brand.logo %}
+                                <img src="{{ brand.logo }}" alt="{{ brand.name }}">
+                            {% else %}
+                                <span class="manufacturer-name">{{ brand.name }}</span>
+                            {% endif %}
+                        </a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>{{ trans('pages.manufacturers.no_manufacturers')|default('No featured manufacturers available.') }}</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
