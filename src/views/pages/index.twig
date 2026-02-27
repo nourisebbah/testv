@@ -70,7 +70,7 @@
             <h4 class="section-title">Featured categories</h4>
             <div class="categories-grid">
                 <div class="category-item">
-                    <a href="{{ 'categories/body'|url }}">
+                    <a href="{{ page('product.index') }}?category=body">
                         <div class="category-icon">
                             <img src="{{ 'images/categories/body.jpg'|asset }}" alt="Body">
                         </div>
@@ -78,7 +78,7 @@
                     </a>
                 </div>
                 <div class="category-item">
-                    <a href="{{ 'categories/brakes'|url }}">
+                    <a href="{{ page('product.index') }}?category=brakes">
                         <div class="category-icon">
                             <img src="{{ 'images/categories/brakes.jpg'|asset }}" alt="Brakes">
                         </div>
@@ -86,7 +86,7 @@
                     </a>
                 </div>
                 <div class="category-item">
-                    <a href="{{ 'categories/care-kit'|url }}">
+                    <a href="{{ page('product.index') }}?category=care-kit">
                         <div class="category-icon">
                             <img src="{{ 'images/categories/care-kit.jpg'|asset }}" alt="Care Kit">
                         </div>
@@ -94,7 +94,7 @@
                     </a>
                 </div>
                 <div class="category-item">
-                    <a href="{{ 'categories/damping'|url }}">
+                    <a href="{{ page('product.index') }}?category=damping">
                         <div class="category-icon">
                             <img src="{{ 'images/categories/damping.jpg'|asset }}" alt="Damping">
                         </div>
@@ -102,7 +102,7 @@
                     </a>
                 </div>
                 <div class="category-item">
-                    <a href="{{ 'categories/electrics'|url }}">
+                    <a href="{{ page('product.index') }}?category=electrics">
                         <div class="category-icon">
                             <img src="{{ 'images/categories/electrics.jpg'|asset }}" alt="Electrics">
                         </div>
@@ -110,7 +110,7 @@
                     </a>
                 </div>
                 <div class="category-item">
-                    <a href="{{ 'categories/engine'|url }}">
+                    <a href="{{ page('product.index') }}?category=engine">
                         <div class="category-icon">
                             <img src="{{ 'images/categories/engine.jpg'|asset }}" alt="Engine">
                         </div>
@@ -118,7 +118,7 @@
                     </a>
                 </div>
                 <div class="category-item">
-                    <a href="{{ 'categories/filters'|url }}">
+                    <a href="{{ page('product.index') }}?category=filters">
                         <div class="category-icon">
                             <img src="{{ 'images/categories/filters.jpg'|asset }}" alt="Filters">
                         </div>
@@ -126,7 +126,7 @@
                     </a>
                 </div>
                 <div class="category-item">
-                    <a href="{{ 'categories/interior'|url }}">
+                    <a href="{{ page('product.index') }}?category=interior">
                         <div class="category-icon">
                             <img src="{{ 'images/categories/interior.jpg'|asset }}" alt="Interior">
                         </div>
@@ -134,7 +134,7 @@
                     </a>
                 </div>
                 <div class="category-item">
-                    <a href="{{ 'categories/fluids'|url }}">
+                    <a href="{{ page('product.index') }}?category=fluids">
                         <div class="category-icon">
                             <img src="{{ 'images/categories/fluids.jpg'|asset }}" alt="Fluids">
                         </div>
@@ -197,7 +197,9 @@
                     <button class="tab-btn">Suspension</button>
                 </div>
             </div>
-            <salla-products-list source="featured" limit="8"></salla-products-list>
+            <div class="products-grid">
+                <salla-products-list source="featured" limit="8" class="products-grid"></salla-products-list>
+            </div>
         </div>
     </section>
 
@@ -220,7 +222,9 @@
                     <button class="nav-arrow"><i class="sicon-chevron-right"></i></button>
                 </div>
             </div>
-            <salla-products-list source="latest" limit="4"></salla-products-list>
+            <div class="products-grid">
+                <salla-products-list source="latest" limit="4" class="products-grid"></salla-products-list>
+            </div>
         </div>
     </section>
 
@@ -393,7 +397,7 @@
                 <div class="guides-text">
                     <h4 class="section-title">Guides and articles</h4>
                     <p>Articles and Guides that are written with the mechanics to ensure you have all the edge you need to make the correct selection here at Mobex.</p>
-                    <a href="{{ 'blog'|url }}" class="read-more-btn">Read more <i class="sicon-arrow-right"></i></a>
+                    <a href="{{ page('blog.index') }}" class="read-more-btn">Read more <i class="sicon-arrow-right"></i></a>
                 </div>
                 <div class="articles-grid">
                     <article class="article-card">
@@ -403,7 +407,7 @@
                         </div>
                         <span class="article-category">News</span>
                         <h3>The number of new cars sold over 20 years</h3>
-                        <a href="{{ 'blog'|url }}" class="article-link">Read more <i class="sicon-arrow-right"></i></a>
+                        <a href="{{ page('blog.index') }}" class="article-link">Read more <i class="sicon-arrow-right"></i></a>
                     </article>
                     <article class="article-card">
                         <div class="article-image">
@@ -412,7 +416,7 @@
                         </div>
                         <span class="article-category">Usefull</span>
                         <h3>Warning lights indicating activation of various systems</h3>
-                        <a href="{{ 'blog'|url }}" class="article-link">Read more <i class="sicon-arrow-right"></i></a>
+                        <a href="{{ page('blog.index') }}" class="article-link">Read more <i class="sicon-arrow-right"></i></a>
                     </article>
                     <article class="article-card">
                         <div class="article-image">
@@ -421,7 +425,7 @@
                         </div>
                         <span class="article-category">Premium</span>
                         <h3>What to know about changing the engine oil and oil filters</h3>
-                        <a href="{{ 'blog'|url }}" class="article-link">Read more <i class="sicon-arrow-right"></i></a>
+                        <a href="{{ page('blog.index') }}" class="article-link">Read more <i class="sicon-arrow-right"></i></a>
                     </article>
                 </div>
             </div>

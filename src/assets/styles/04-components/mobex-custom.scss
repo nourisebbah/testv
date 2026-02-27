@@ -354,6 +354,132 @@ body {
     }
 }
 
+/* Style Salla Product Cards to Match MOBEX Design */
+.products-grid {
+    salla-products-list {
+        display: contents; /* Allow grid to work with salla-products-list */
+    }
+
+    .s-product-card-entry {
+        background-color: #fff;
+        border-radius: 6px;
+        border: 1px solid #e0e0e0;
+        padding: 0;
+        box-shadow: none;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        .s-product-card-image {
+            width: 100%;
+            padding: 12px;
+            margin: 0;
+            margin-bottom: auto !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .s-product-card-content {
+            padding: 0 8px 8px 8px;
+            text-align: left;
+
+            .s-product-card-content-title {
+                font-size: 14px;
+                line-height: 20px;
+                font-weight: 700;
+                margin-bottom: 8px;
+                min-height: 40px;
+                color: var(--mobex-dark-gray);
+
+                a {
+                    color: var(--mobex-dark-gray);
+                    text-decoration: none;
+                }
+            }
+
+            .s-product-card-rating {
+                color: #ddd;
+                margin-bottom: 8px;
+                font-size: 14px;
+            }
+
+            .s-product-card-sale-price,
+            .s-product-card-content-price {
+                font-size: 18px;
+                font-weight: 700;
+                color: #bf3617;
+                margin-top: 8px;
+                margin-bottom: 0;
+                display: inline-flex;
+                width: 100%;
+                align-items: center;
+                justify-content: flex-start;
+
+                h4 {
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: #bf3617;
+                    margin: 0;
+                }
+            }
+
+            .s-product-card-content-footer {
+                margin-top: 16px;
+                margin-bottom: 0 !important;
+                text-align: left !important;
+
+                salla-add-product-button {
+                    background-color: transparent !important;
+                    padding: 0 !important;
+                    color: #034c8c;
+                    border: none;
+                    cursor: pointer;
+                    display: inline-flex;
+                    align-items: center;
+                    font-size: 15px;
+                    font-weight: 700;
+
+                    &:hover {
+                        color: var(--mobex-dark-blue);
+                    }
+                }
+            }
+        }
+
+        .s-product-card-promotion-title {
+            position: absolute;
+            left: 12px !important;
+            top: 12px !important;
+            border-radius: 6px;
+            padding: 6px;
+            z-index: 17;
+            text-align: center;
+            color: #fff;
+            font-size: 11px;
+            min-width: 40px;
+            line-height: 11px;
+            font-weight: 700;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: fit-content;
+            background-color: var(--mobex-yellow);
+            color: #000;
+        }
+    }
+}
+
 /* Featured Brands */
 .featured-brands {
     padding: 60px 0;
