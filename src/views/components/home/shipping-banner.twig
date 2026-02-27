@@ -1,0 +1,18 @@
+{# Free Shipping Banner Component - MOBEX Design #}
+<section class="shipping-banner">
+    <div class="container">
+        <div class="shipping-content">
+            <div class="shipping-text">
+                <h2>FREE<br>SHIPPING</h2>
+                <div class="shipping-price">
+                    <span class="price-large">$99</span>
+                    <span class="price-label">STARTING</span>
+                </div>
+                <p>{{ trans('pages.shipping.description')|default('For all items & regions!') }}</p>
+            </div>
+            <div class="shipping-image">
+                <img src="{{ 'images/delivery-van.jpg'|asset }}" alt="Delivery">
+            </div>
+        </div>
+    </div>
+</section>

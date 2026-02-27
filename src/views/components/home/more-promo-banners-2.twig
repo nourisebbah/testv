@@ -1,0 +1,56 @@
+{# More Promotional Banners 2 Component - MOBEX Design #}
+<section class="more-promo-banners-2">
+    <div class="container">
+        <div class="banner-grid-2">
+            {% if banners and banners|length > 0 %}
+                {% for banner in banners %}
+                    <div class="promo-banner {{ banner.class|default('offroad-banner') }}">
+                        <div class="banner-content">
+                            {% if banner.badge %}
+                                <span class="banner-badge {{ banner.badge_class|default('orange') }}">{{ banner.badge }}</span>
+                            {% endif %}
+                            {% if banner.title %}
+                                <h2>{{ banner.title }}</h2>
+                            {% endif %}
+                            {% if banner.subtitle %}
+                                <p>{{ banner.subtitle }}</p>
+                            {% endif %}
+                            {% if banner.button_text and banner.button_url %}
+                                <a href="{{ banner.button_url }}" class="banner-btn">{{ banner.button_text }} <i class="sicon-arrow-right"></i></a>
+                            {% endif %}
+                        </div>
+                        {% if banner.image %}
+                            <div class="banner-image">
+                                <img src="{{ banner.image.url }}" alt="{{ banner.image.alt|default(banner.title) }}">
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                {# Fallback static banners #}
+                <div class="promo-banner offroad-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge orange">Up to 40% Off</span>
+                        <h2>READY FOR<br>OFF ROAD</h2>
+                        <p>Confidence on any road!</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/offroad-tire.jpg'|asset }}" alt="Off-Road Tire">
+                    </div>
+                </div>
+                <div class="promo-banner engine-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge green">Top Brands</span>
+                        <h2>ENGINE<br>ESSENTIALS</h2>
+                        <p>Maximize & Maintain</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/engine.jpg'|asset }}" alt="Engine">
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

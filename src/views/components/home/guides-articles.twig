@@ -1,0 +1,38 @@
+{# Guides and Articles Component - MOBEX Design #}
+<section class="guides-section">
+    <div class="container">
+        <div class="guides-content">
+            <div class="guides-text">
+                <h4 class="section-title">{{ trans('pages.blog.guides_title')|default('Guides and articles') }}</h4>
+                <p>{{ trans('pages.blog.guides_description')|default('Articles and Guides that are written with the mechanics to ensure you have all the edge you need to make the correct selection here at Mobex.') }}</p>
+                <a href="{{ blog_url|default('#') }}" class="read-more-btn">Read more <i class="sicon-arrow-right"></i></a>
+            </div>
+            <div class="articles-grid">
+                {% if articles|length > 0 %}
+                    {% for article in articles %}
+                        <article class="article-card">
+                            <div class="article-image">
+                                <img src="{{ article.image.url|default('images/articles/default.jpg'|asset) }}" alt="{{ article.title }}">
+                                <span class="article-date">{{ article.published_at|date('d M') }}</span>
+                            </div>
+                            <span class="article-category">{{ article.category.name|default('News') }}</span>
+                            <h3>{{ article.title }}</h3>
+                            <a href="{{ article.url }}" class="article-link">Read more <i class="sicon-arrow-right"></i></a>
+                        </article>
+                    {% endfor %}
+                {% else %}
+                    {# Fallback static articles if articles array is empty #}
+                    <article class="article-card">
+                        <div class="article-image">
+                            <img src="{{ 'images/articles/cars-sold.jpg'|asset }}" alt="Cars Sold">
+                            <span class="article-date">02 OCT</span>
+                        </div>
+                        <span class="article-category">News</span>
+                        <h3>The number of new cars sold over 20 years</h3>
+                        <a href="#" class="article-link">Read more <i class="sicon-arrow-right"></i></a>
+                    </article>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

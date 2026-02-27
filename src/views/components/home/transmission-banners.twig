@@ -1,0 +1,55 @@
+{# Transmission & Care Kit Banners Component - MOBEX Design #}
+<section class="transmission-banners">
+    <div class="container">
+        <div class="banner-grid-2">
+            {% if banners and banners|length > 0 %}
+                {% for banner in banners %}
+                    <div class="promo-banner {{ banner.class|default('transmission-banner') }}">
+                        <div class="banner-content">
+                            {% if banner.badge %}
+                                <span class="banner-badge {{ banner.badge_class|default('yellow') }}">{{ banner.badge }}</span>
+                            {% endif %}
+                            {% if banner.title %}
+                                <h2>{{ banner.title }}</h2>
+                            {% endif %}
+                            {% if banner.subtitle %}
+                                <p>{{ banner.subtitle }}</p>
+                            {% endif %}
+                            {% if banner.button_text and banner.button_url %}
+                                <a href="{{ banner.button_url }}" class="banner-btn">{{ banner.button_text }} <i class="sicon-arrow-right"></i></a>
+                            {% endif %}
+                        </div>
+                        {% if banner.image %}
+                            <div class="banner-image">
+                                <img src="{{ banner.image.url }}" alt="{{ banner.image.alt|default(banner.title) }}">
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                {# Fallback static banners #}
+                <div class="promo-banner transmission-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge yellow">15% off</span>
+                        <h2>TRANSMISSION FLUIDS</h2>
+                        <p>Superior Quality ATF</p>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/transmission-fluid.jpg'|asset }}" alt="Transmission Fluid">
+                    </div>
+                </div>
+                <div class="promo-banner carekit-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge green">Save 25%. All in One!</span>
+                        <h2>CARE CARE KIT</h2>
+                        <p>Keep things clean and shinela</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/care-kit.jpg'|asset }}" alt="Care Kit">
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

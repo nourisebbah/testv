@@ -1,0 +1,77 @@
+{#
+| Variable                       | Type     | Description                                                                  |
+|--------------------------------|----------|------------------------------------------------------------------------------|
+| component                      | object   | Contains merchant settings for fields from twilight.json `component` section |
+| component.slides[].image       | string   | Image url                                                                    |
+| component.slides[].title       | ?string  |                                                                              |
+| component.slides[].description | ?string  |                                                                              |
+| component.slides               | object[] | list of slides                                                               |
+| position                       | int      | Sorting number start from zero                                               |
+#}
+<section class="hero-section">
+    <div class="hero-slider">
+        <salla-slider 
+          id="main-slider-{{ position }}"
+          auto-play
+          static-when-single
+          slider-config='{"lazy":"false"}'
+          {{ component.slides|length > 1 ? '' : 'show-controls="false"' }}
+          type="fullwidth">
+            <div slot="items">
+                {% for slide in component.slides %}
+                    <div class="swiper-slide hero-slide {% if loop.first %}active{% endif %}">
+                        <div class="hero-content">
+                            <div class="hero-text">
+                                <h2>{{ slide.title|default('JUMP STARTERS') }}</h2>
+                                <p>{{ slide.description|default('START BATTERIES IN SECONDS') }}</p>
+                                <button class="shop-now-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                            </div>
+                            <div class="hero-image">
+                                <img src="{{ slide.image }}" alt="{{ slide.title|default('Hero') }}">
+                                <div class="price-badge">FROM $49.99</div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </salla-slider>
+    </div>
+    
+    <!-- Vehicle Filter - Fixed in Hero Banner -->
+    <div class="hero-vehicle-filter">
+        <div class="vehicle-filter-form">
+            <h5>Select your car</h5>
+            <div class="vehicle-filter-fields">
+                <select class="vehicle-select">
+                    <option>Make</option>
+                </select>
+                <select class="vehicle-select">
+                    <option>Model</option>
+                </select>
+                <select class="vehicle-select">
+                    <option>Year</option>
+                </select>
+                <select class="vehicle-select">
+                    <option>Engine</option>
+                </select>
+                <select class="vehicle-select">
+                    <option>Trim</option>
+                </select>
+                <button class="vehicle-search-btn">Search</button>
+            </div>
+            <div class="vehicle-filter-or">
+                <span>OR</span>
+            </div>
+            <div class="vehicle-filter-vin">
+                <input type="text" class="vin-input" placeholder="Search by VIN">
+                <button class="vin-search-btn">Search</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slider-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</section>

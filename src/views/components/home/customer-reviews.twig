@@ -1,0 +1,50 @@
+{# Customer Reviews Component - MOBEX Design #}
+<section class="customer-reviews">
+    <div class="container">
+        <div class="reviews-header">
+            <h4 class="section-title">{{ trans('pages.testimonials.title')|default('What our customers think') }}</h4>
+            <div class="reviews-rating">
+                <span class="rating-text">Excellent 4.91</span>
+                <span class="rating-count">based on 225,181 reviews</span>
+            </div>
+        </div>
+        <div class="reviews-grid">
+            {% if testimonials|length > 0 %}
+                {% for testimonial in testimonials %}
+                    <div class="review-card">
+                        <div class="reviewer-info">
+                            <img src="{{ testimonial.avatar|default('images/reviewers/default.jpg'|asset) }}" alt="{{ testimonial.name }}" class="reviewer-avatar">
+                            <div class="reviewer-details">
+                                <h4>{{ testimonial.name }}</h4>
+                                <div class="review-stars">
+                                    {% for i in 1..testimonial.stars|default(5) %}
+                                        <i class="sicon-star-fill"></i>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">{{ testimonial.text }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                {# Fallback static reviews if testimonials array is empty #}
+                <div class="review-card">
+                    <div class="reviewer-info">
+                        <img src="{{ 'images/reviewers/john.jpg'|asset }}" alt="John Anderson" class="reviewer-avatar">
+                        <div class="reviewer-details">
+                            <h4>John Anderson</h4>
+                            <div class="review-stars">
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                                <i class="sicon-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="review-text">I found the exact fuel pump I needed for my vintage car, and the speedy delivery exceeded my expectations.</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

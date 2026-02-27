@@ -1,0 +1,53 @@
+{# Additional Promotional Banners Component - MOBEX Design #}
+<section class="additional-banners">
+    <div class="container">
+        <div class="banner-grid-2">
+            {% if banners and banners|length > 0 %}
+                {% for banner in banners %}
+                    <div class="promo-banner {{ banner.class|default('brake-banner') }}">
+                        <div class="banner-content">
+                            {% if banner.badge %}
+                                <span class="banner-badge {{ banner.badge_class|default('') }}">{{ banner.badge }}</span>
+                            {% endif %}
+                            {% if banner.title %}
+                                <h2>{{ banner.title }}</h2>
+                            {% endif %}
+                            {% if banner.subtitle %}
+                                <p>{{ banner.subtitle }}</p>
+                            {% endif %}
+                            {% if banner.description %}
+                                <p class="banner-subtitle">{{ banner.description }}</p>
+                            {% endif %}
+                            {% if banner.button_text and banner.button_url %}
+                                <a href="{{ banner.button_url }}" class="banner-btn">{{ banner.button_text }} <i class="sicon-arrow-right"></i></a>
+                            {% endif %}
+                            {% if banner.show_presale_chat %}
+                                <button class="presale-chat-btn">Presale chat</button>
+                            {% endif %}
+                        </div>
+                        {% if banner.image %}
+                            <div class="banner-image">
+                                <img src="{{ banner.image.url }}" alt="{{ banner.image.alt|default(banner.title) }}">
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            {% else %}
+                {# Fallback static banner #}
+                <div class="promo-banner brake-banner">
+                    <div class="banner-content">
+                        <span class="banner-badge">Top brands</span>
+                        <h2>BRAKE SYSTEM</h2>
+                        <p>WE'VE GOT YOU COVERED</p>
+                        <p class="banner-subtitle">Great Values. Always.</p>
+                        <button class="banner-btn">Shop now <i class="sicon-arrow-right"></i></button>
+                        <button class="presale-chat-btn">Presale chat</button>
+                    </div>
+                    <div class="banner-image">
+                        <img src="{{ 'images/brake-system.jpg'|asset }}" alt="Brake System">
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</section>

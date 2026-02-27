@@ -1,0 +1,62 @@
+{# Deals of the Week Component - MOBEX Design #}
+<section class="deals-section">
+    <div class="container">
+        <div class="deals-header">
+            <h2>Deals of the week!</h2>
+            <div class="deals-countdown">
+                <span class="timer-box">09</span>
+                <span class="timer-separator">:</span>
+                <span class="timer-box">20</span>
+                <span class="timer-separator">:</span>
+                <span class="timer-box">54</span>
+                <span class="timer-separator">:</span>
+                <span class="timer-box">27</span>
+            </div>
+            <div class="deals-nav">
+                <button class="nav-arrow"><i class="sicon-chevron-left"></i></button>
+                <button class="nav-arrow"><i class="sicon-chevron-right"></i></button>
+            </div>
+        </div>
+        <div class="products-grid">
+            {% if products|length > 0 %}
+                {% for product in products %}
+                    <div class="product-card">
+                        {% if product.promotion_title %}
+                            <span class="product-badge sale">{{ product.promotion_title }}</span>
+                        {% endif %}
+                        <div class="product-image">
+                            <a href="{{ product.url }}">
+                                <img src="{{ product.image.url }}" alt="{{ product.image.alt }}"/>
+                            </a>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">
+                                <a href="{{ product.url }}">{{ product.name }}</a>
+                            </h3>
+                            {% if product.rating %}
+                                <div class="product-rating">
+                                    <salla-rating-stars rating="{{ product.rating }}"></salla-rating-stars>
+                                </div>
+                            {% endif %}
+                            <div class="product-price">
+                                {% if product.is_on_sale %}
+                                    <h4>{{ product.sale_price|money }}</h4>
+                                    <span class="regular-price">{{ product.regular_price|money }}</span>
+                                {% else %}
+                                    <h4>{{ product.price|money }}</h4>
+                                {% endif %}
+                            </div>
+                            <salla-add-product-button 
+                                product-id="{{ product.id }}"
+                                product-status="{{ product.status }}"
+                                product-type="{{ product.type }}">
+                            </salla-add-product-button>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>{{ trans('pages.products.no_products')|default('No deals available.') }}</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
